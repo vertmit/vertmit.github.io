@@ -1,70 +1,182 @@
-.container {
-    display: flex;
-    flex-direction: column;
+@import url('https://fonts.googleapis.com/css2?family=Galindo&family=Lexend:wght@100..900&family=Mandali&family=Outfit:wght@100..900&display=swap');
+body, html {
+    margin: 0px;
+    width: 100%;
     height: 100%;
-    background-color: var(--bg-colour);
+    color: rgb(201, 220, 255);
+    font-family: "lexend";
+    scroll-behavior:smooth;
+
 }
 
-.row {
+*::selection {
+    background-color: rgba(0, 255, 255, 0.295);
+}
+
+#bg {
+    position: fixed;
+    top: 0px;
+    z-index: -100;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(7, 18, 36);
+}
+
+.container {
+    opacity: 0.8;
     display: flex;
     flex-direction: row;
-    margin-bottom: 0px;
+}
+
+.navbar {
+    position: fixed;
+    width: 400px;
+    height: 100vh;
+}
+
+.navbarcontent {
+    position: relative;
     width: 100%;
+    height: 100%;
 }
 
-.item-title {
-    transition: 500ms;
+.name {
+    position: absolute;
+    left: 50px;
+    top: 50px
+}
+
+h1 {
+    font-size: 50px;
+    margin: 0px;
+    color: rgb(235, 242, 255);
+}
+
+h2 {
+    margin: 0px;
+}
+
+.content {
+    width: calc(100% - 700px);
+    padding: 50px;
+    padding-top: 0px;
+    margin-left: 400px;
+}
+
+#about {
+    padding-top: 50px;
+}
+
+p {
     font-size: 20px;
-    text-align: center;
-    margin-inline: 5%;
+    margin-top: 0px;
 }
 
-.item {
+.project {
+    position: relative;
+    transition: 200ms;
+    border: 2px solid transparent;
+    border-radius: 10px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 200ms;
-    border-radius: 5px;
-    background-color: var(--div-bg-colour);
-    margin: 5px;
-    aspect-ratio: 16/12;
-    width: 10%;
+    flex-direction: row;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+#projects:hover .project {
+    opacity: 0.2;
+    filter: blur(2px);
+}
+
+.project:hover {
+    border: 2px solid rgba(81, 99, 155, 0.61);
+    opacity: 1 !important;
+    filter: blur(0px) !important;
+}
+
+.project .thumbnail {
+    border-radius: 10px;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    height: 100%;
+    aspect-ratio: 12/8;
 }
 
-.item:hover {
-    transition: transform 700ms;
-    cursor: pointer;
-    transform: scale(1.2);
-    filter:brightness(1);
+.textcontent {
+    margin-left: 10px;
 }
 
-#name-div {
-    z-index: 2;
-    text-align: center;
-    position: fixed;
-    width: fit-content;
-    height: fit-content;
-    padding: 30px;
-    border-radius: 10px;
-    inset: 0px;
-    background: rgba(0, 0, 0, 0.5);
-    margin: auto;
-}
-
-#name-title {
-    font-size: 100px;
+.project h3 {
     margin: 0px;
-    
-}
-
-#name-subtitle {
     font-size: 30px;
-    margin: 0px;
+    color: rgb(235, 242, 255);
 }
 
-#name-title {
-    color: var(--text-colour);
+.chipcontainer {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    position: absolute;
+    bottom: 10px;
+}
+.chip {
+    background-color: rgb(22, 75, 136);
+    padding-inline: 6px;
+    border-radius: 10px;
+}
+
+.linkcontainer {
+    display: flex;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    font-size: 20px;
+}
+
+.linkcontainer a {
+    transition: 200ms;
+    padding: 5px;
+    opacity: 0.5;
+    color: inherit;
+}
+
+.linkcontainer a:hover {
+    transition: 500ms;
+    opacity: 1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.nav {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nline {
+    transition: 200ms;
+    height: 5px;
+    width: 20px;
+    background-color: rgb(201, 220, 255);
+}
+
+.nlink {
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 25px;
+    font-weight: 600;
+    width: 300px;
+}
+
+.nlink:hover .nline {
+    transition: 500ms;
+    width: 30px;
 }
