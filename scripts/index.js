@@ -3,7 +3,7 @@ const background = document.getElementById("bg");
 document.addEventListener("mousemove", (e)=>{
     mouseX = e.clientX;
     mouseY = e.clientY;
-    background.style.background = `radial-gradient(circle at ${mouseX}px ${mouseY}px, rgb(12, 44, 92) 50px, rgb(7, 18, 36) 200px)`
+    background.style.background = `radial-gradient(circle at ${mouseX}px ${mouseY}px, rgb(12, 34, 66)50px, rgb(7, 18, 36) 400px)`
 });
 
 const projects = [
@@ -38,10 +38,18 @@ const projects = [
         "chips": ["Website", "HTML", "CSS", "Java Script"],
         "link": "https://vertmit.github.io/vision/",
         "links": [["solid", "globe", "https://vertmit.github.io/vision/"], ["brands", "github", "https://github.com/vertmit/vision"]]
+    },
+    {
+        "name": "Sandbox",
+        "thumbnail": "imgs/thumbnails/sandbox.png",
+        "description": "Vision test is a game that tests your vision. You are given a set of characters and need to click on the odd one out.",
+        "chips": ["Game", "C++", "SDL"],
+        "link": "https://made-up.itch.io/sandbox",
+        "links": [["brands", "itch-io", "https://made-up.itch.io/sandbox"]]
     }
 ];
 
-const projectcontainer = document.getElementById("projects")
+const projectcontainer = document.getElementById("projectholder")
 
 for (let project of projects) {
     const projectlink = document.createElement("a")
@@ -98,3 +106,57 @@ for (let project of projects) {
     projectlink.appendChild(projectdiv)
     projectcontainer.appendChild(projectlink)
 }
+
+const aboutcontainer = document.getElementById("about")
+const mobilenav = document.getElementById("position")
+
+function removeselections() {
+    for (let link of document.getElementsByClassName("noption")) {
+        link.classList.remove("selected")
+    }
+}
+
+let mobilewidth = false
+
+if (window.innerWidth <= 1040) {
+    mobilewidth = true
+}
+
+const mobilenavcon = document.getElementsByClassName("mobilenav")[0]
+
+function updatePosition() {
+    const scrolly = window.scrollY
+    let aditionalY = 0
+
+    if (mobilewidth) {
+        aditionalY = document.getElementsByClassName("name")[0].scrollHeight
+    }
+    if (mobilewidth && scrolly < aditionalY) {
+        mobilenavcon.style.animation = "hidenav 100ms ease-out forwards"
+    }
+    else if (scrolly < aboutcontainer.scrollHeight + aditionalY) {
+        removeselections()
+        document.getElementsByClassName("noption")[0].classList.add("selected")
+        mobilenav.style.animation = "navabout 100ms ease-out forwards"
+        mobilenavcon.style.animation = "shownav 100ms ease-out forwards"
+    }
+    else if (scrolly < aboutcontainer.scrollHeight + projectcontainer.scrollHeight + aditionalY) {
+        removeselections()
+        document.getElementsByClassName("noption")[1].classList.add("selected")
+        mobilenav.style.animation = "navprojects 100ms ease-out forwards"
+        mobilenavcon.style.animation = "shownav 100ms ease-out forwards"
+    }
+}
+
+document.addEventListener("scroll", (e)=>{
+    updatePosition()
+})
+
+window.addEventListener("resize", (e)=>{
+    if (window.innerWidth <= 1040) {
+        mobilewidth = true
+    } else {
+        mobilewidth = false
+    }
+    updatePosition()
+})

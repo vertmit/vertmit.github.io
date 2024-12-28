@@ -4,9 +4,10 @@ body, html {
     width: 100%;
     height: 100%;
     color: rgb(201, 220, 255);
+    background-color: rgb(7, 18, 36);
     font-family: "lexend";
     scroll-behavior:smooth;
-
+    z-index: -3;
 }
 
 *::selection {
@@ -16,7 +17,7 @@ body, html {
 #bg {
     position: fixed;
     top: 0px;
-    z-index: -100;
+    z-index: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgb(7, 18, 36);
@@ -29,6 +30,7 @@ body, html {
 }
 
 .navbar {
+    z-index: 3;
     position: fixed;
     width: 400px;
     height: 100vh;
@@ -81,15 +83,17 @@ p {
     flex-direction: row;
     height: 150px;
     margin-bottom: 10px;
+    backdrop-filter: blur(100px);
 }
 
-#projects:hover .project {
+#projectholder:hover .project {
     opacity: 0.2;
     filter: blur(2px);
 }
 
 .project:hover {
     border: 2px solid rgba(81, 99, 155, 0.61);
+    background-color: rgba(55, 65, 104, 0.438);
     opacity: 1 !important;
     filter: blur(0px) !important;
 }
@@ -176,7 +180,189 @@ a {
     width: 300px;
 }
 
+.selected .nline {
+    width: 40px !important;
+}
+
 .nlink:hover .nline {
     transition: 500ms;
     width: 30px;
+}
+
+.links {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 25px;
+}
+
+.mobilenav {
+    position: fixed;
+    display: none;
+    z-index: 10;
+    top: 0px;
+    overflow: hidden;
+    width: 100vw;
+    height: 50px;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 10, 26, 0.822);
+    transform: translateY(-100%);
+}
+
+.position {
+    position: relative;
+    display: inline-block;
+    margin-left: 50px;
+}
+.position h2 {
+    margin-block: 10px;
+}
+
+h3 {
+    font-size: 25px;
+    margin-bottom: 0px;
+    color: rgb(235, 242, 255);
+}
+
+.underline {
+    width: 100px;
+    height: 4px;
+    background-color: rgb(235, 242, 255);
+}
+
+@keyframes navprojects {
+    0% {
+        top: 0px;
+    }
+    100% {
+        top: -40px;
+    }
+}
+
+@keyframes navabout {
+    0% {
+        top: -40px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+@keyframes hidenav {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes shownav {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .project p {
+        font-size: 15px;
+    }
+    .project h3 {
+        font-size: 25px;
+    }
+    .project .chip {
+        font-size: 15px;
+    }
+    .project i {
+        font-size: 15px;
+    }
+    .content {
+        width: 100%;
+    }
+    .linkcontainer {
+        top: -10px
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    #bg {
+        display: none;
+    }
+    .content {
+        margin-left: 0px;
+        width: calc(100% - 100px);
+    }
+    .container {
+        flex-direction: column;
+        display: block;
+    }
+    .nav {
+        display: none;
+    }
+    .navbarcontent {
+        position: static;
+        height: fit-content;
+    }
+
+    .name {
+        position: static;
+        margin-left: 50px;
+        padding-top: 50px;
+        margin-bottom: 100px;
+        margin-bottom: 0px;
+    }
+    .links {
+        margin-left: 50px;
+        position: static;
+        display: flex;
+        gap: 10px;
+        transform: translateX(0%);
+        font-size: 25px;
+    }
+
+    .navbar {
+        position: static;
+        min-height: fit-content;
+    }
+    .navbar {
+        width: 100vw;
+        height: 50px;
+    }
+    .mobilenav {
+        display: flex;
+    }
+
+    .linkcontainer {
+        top: -10px
+    }
+
+}
+
+@media screen and (max-width: 625px) {
+    .content {
+        margin-left: 0px;
+        max-width: calc(100% - 40px);
+        padding: 20px;
+    }
+    .project p {
+        font-size: 13px;
+    }
+    .project h3 {
+        font-size: 20px;
+    }
+    .project .chip {
+        font-size: 10px;
+    }
+    .project i {
+        font-size: 10px;
+    }
+    .content {
+        width: 100%;
+    }
 }
