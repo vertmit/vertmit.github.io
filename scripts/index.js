@@ -8,12 +8,28 @@ document.addEventListener("mousemove", (e)=>{
 
 const projects = [
     {
+        "name": "Vertmit",
+        "thumbnail": "imgs/thumbnails/vertmit.png",
+        "description": "This is the home page for my profile, and you're currently on it. I helps my projects get recognised, and looks beautiful.",
+        "chips": ["Website", "HTML", "CSS", "Java Script"],
+        "link": "#",
+        "links": [["solid", "globe", "#"], ["brands", "github", "https://github.com/vertmit.github.io"]]
+    },
+    {
         "name": "Tabs",
         "thumbnail": "imgs/thumbnails/tabs.png",
         "description": "Tabs is an easy and simple way to store important data about people you don't want to forget. This tool is more targeted to the everyday person.",
         "chips": ["Website", "HTML", "CSS", "Java Script"],
         "link": "https://vertmit.github.io/tabs/",
         "links": [["solid", "globe", "https://vertmit.github.io/tabs/"], ["brands", "github", "https://github.com/vertmit/tabs"]]
+    },
+    {
+        "name": "Vision Test",
+        "thumbnail": "imgs/thumbnails/vision.png",
+        "description": "Vision test is a game that tests your vision. You are given a set of characters and need to click on the odd one out.",
+        "chips": ["Website", "HTML", "CSS", "Java Script"],
+        "link": "https://vertmit.github.io/vision/",
+        "links": [["solid", "globe", "https://vertmit.github.io/vision/"], ["brands", "github", "https://github.com/vertmit/vision"]]
     },
     {
         "name": "Polygon Collision",
@@ -32,20 +48,29 @@ const projects = [
         "links": [["brands", "python", "https://pypi.org/project/pyspell/"], ["brands", "github", "https://github.com/vertmit/pyspell"]]
     },
     {
-        "name": "Vision Test",
-        "thumbnail": "imgs/thumbnails/vision.png",
-        "description": "Vision test is a game that tests your vision. You are given a set of characters and need to click on the odd one out.",
-        "chips": ["Website", "HTML", "CSS", "Java Script"],
-        "link": "https://vertmit.github.io/vision/",
-        "links": [["solid", "globe", "https://vertmit.github.io/vision/"], ["brands", "github", "https://github.com/vertmit/vision"]]
+        "name": "Colconv",
+        "thumbnail": "",
+        "description": "Colconv is a python library that converts different colour formats to other ones, like RGB to HSV.",
+        "chips": ["Python", "PIP Package"],
+        "link": "https://test.pypi.org/project/colconv/",
+        "links": [["brands", "python", "https://test.pypi.org/project/colconv/"], ["brands", "github", "https://github.com/vertmit/colconv"]]
+        
     },
     {
         "name": "Sandbox",
         "thumbnail": "imgs/thumbnails/sandbox.png",
-        "description": "Vision test is a game that tests your vision. You are given a set of characters and need to click on the odd one out.",
+        "description": "Sandbox is a sandbox game where you can ply with the available elements and see how they interact with eachother.",
         "chips": ["Game", "C++", "SDL"],
         "link": "https://made-up.itch.io/sandbox",
         "links": [["brands", "itch-io", "https://made-up.itch.io/sandbox"]]
+    },
+    {
+        "name": "Flapping Heights",
+        "thumbnail": "imgs/thumbnails/flap.png",
+        "description": "Flapping heights is a game where you try to get to the top of the world, whilst having to collect seed to keep going.",
+        "chips": ["Game", "Python", "Pygame"],
+        "link": "https://made-up.itch.io/flapping-heights",
+        "links": [["brands", "itch-io", "https://made-up.itch.io/flapping-heights"]]
     }
 ];
 
@@ -129,7 +154,7 @@ function updatePosition() {
     let aditionalY = 0
 
     if (mobilewidth) {
-        aditionalY = document.getElementsByClassName("name")[0].scrollHeight
+        aditionalY = document.getElementsByClassName("navbar")[0].offsetHeight
     }
     if (mobilewidth && scrolly < aditionalY) {
         mobilenavcon.style.animation = "hidenav 100ms ease-out forwards"

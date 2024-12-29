@@ -98,7 +98,7 @@ p {
     filter: blur(0px) !important;
 }
 
-.project .thumbnail {
+.thumbnail {
     border-radius: 10px;
     background-size: cover;
     background-position: center;
@@ -288,6 +288,9 @@ h3 {
     .linkcontainer {
         top: -10px
     }
+    .project {
+        height: 125px;
+    }
 }
 
 @media screen and (max-width: 1040px) {
@@ -333,6 +336,10 @@ h3 {
     .navbar {
         width: 100vw;
         height: 50px;
+        padding-bottom: 50px;
+    }
+    #about {
+        padding-top: 0px;
     }
     .mobilenav {
         display: flex;
@@ -349,6 +356,7 @@ h3 {
         margin-left: 0px;
         max-width: calc(100% - 40px);
         padding: 20px;
+        padding-top: 0px;
     }
     .project p {
         font-size: 13px;
@@ -364,5 +372,8 @@ h3 {
     }
     .content {
         width: 100%;
+    }
+    .project {
+        height: 100px;
     }
 }
