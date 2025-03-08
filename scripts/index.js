@@ -71,6 +71,14 @@ const projects = [
         "chips": ["Game", "Python", "Pygame"],
         "link": "https://made-up.itch.io/flapping-heights",
         "links": [["brands", "itch-io", "https://made-up.itch.io/flapping-heights"]]
+    },
+    {
+        "name": "Dictionle",
+        "thumbnail": "imgs/thumbnails/dictionle.png",
+        "description": "Flapping heights is a game where you try to get to the top of the world, whilst having to collect seed to keep going.",
+        "chips": ["Website", "HTML", "CSS", "Java Script"],
+        "link": "https://vertmit.github.io/dictionle/",
+        "links": [["solid", "globe", "hhttps://vertmit.github.io/dictionle/"], ["brands", "github", "https://github.com/vertmit/dictionle"]]
     }
 ];
 
@@ -115,6 +123,21 @@ for (let project of projects) {
     const linkcontainer = document.createElement("div")
     linkcontainer.classList.add("linkcontainer")
     projecttextcontent.appendChild(linkcontainer)
+
+
+    const shareLinkherf = document.createElement("a")
+    shareLinkherf.href = "#"
+    linkcontainer.appendChild(shareLinkherf)
+        
+    const shareicon = document.createElement("i")
+    shareicon.classList.add(`fa-solid`)
+    shareicon.classList.add(`fa-share`)
+    shareLinkherf.appendChild(shareicon)
+
+    shareLinkherf.addEventListener("click", ()=>{
+        navigator.share({text: `I found this awsome project made by vertmit, it's called ${project.name} found at ${project.link}`})
+    })
+
     if (project.links) {
         for (let link of project.links) {
             const linkherf = document.createElement("a")
